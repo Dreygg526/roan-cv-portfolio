@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roan Andrei Uson — Software Engineer</title>
+<meta name="description" content="Software engineer building internal tools and Shopify integrations. Full-stack Next.js, TypeScript and Supabase, shipped to production.">
+<script>
+/* Inline and blocking on purpose: runs before first paint.
+   1. Theme. The first glance is ALWAYS dark: with no saved choice the page opens dark whatever
+      the system says. script.js applies a LIVE system change made during the visit, but only
+      until the visitor clicks the toggle; that click is saved to localStorage and locks.
+   2. Intro. Committed here so the centred identity block is the first frame, never a flash of
+      the rail. Skipped for a real inbound deep link (#projects) but NOT on a reload, skipped
+      inside an iframe (it would steal focus), and skipped on very short viewports (a landscape
+      phone), where the centred block would not fit. */
+(function () {
+  var r = document.documentElement, t = null;
+  try { t = localStorage.getItem('theme'); } catch (e) {}
+  if (t === 'light' || t === 'dark') { r.setAttribute('data-theme', t); r.setAttribute('data-theme-locked', ''); }
+  else r.setAttribute('data-theme', 'dark');
+  try {
+    var reload = false, n = performance.getEntriesByType('navigation')[0];
+    reload = n ? n.type === 'reload' : false;
+    var framed = window.self !== window.top;
+    var tooShort = window.innerHeight < 520;
+    if (!framed && !tooShort && (!location.hash || reload)) r.classList.add('intro');
+  } catch (e) {}
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Sans:wght@200;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- Custom cursor. script.js bails silently if either element is missing. -->
+<div class="cur-ring" id="curRing" aria-hidden="true"></div>
+<div class="cur-dot" id="curDot" aria-hidden="true"></div>
+
+<div class="shell">
+
+  <!-- ============ FIXED IDENTITY COLUMN ============ -->
+  <header class="rail">
+    <div class="rail-top">
+      <figure class="portrait">
+        <div class="portrait-frame">
+          <span class="portrait-ph" aria-hidden="true">Photo<br>1:1</span>
+          <img class="pimg" src="assets/photo.jpg" alt="Portrait of Roan Andrei Uson" onerror="this.remove()">
+        </div>
+        <button class="intro-go" id="introGo" type="button" aria-label="Enter the portfolio"></button>
+      </figure>
+
+      <h1>
+        <span class="name">Roan Andrei Uson</span>
+        <span class="role">Software engineer, internal tools and Shopify</span>
+      </h1>
+      <p class="rail-lede">
+        I build the internal tools a team runs on, in Next.js, TypeScript and Supabase,
+        and I keep them running in production.
+      </p>
+      <p class="intro-hint">
+        <span class="hint-fine">Click the portrait to enter.</span>
+        <span class="hint-touch">Tap the portrait to enter.</span>
+        <button class="intro-skip" id="introSkip" type="button">Skip intro</button>
+      </p>
+
+      <nav class="rail-nav" aria-label="Sections">
+        <ul>
+          <li><a href="#projects"><span class="tick" aria-hidden="true"></span>Projects</a></li>
+          <li><a href="#experience"><span class="tick" aria-hidden="true"></span>Experience</a></li>
+          <li><a href="#skills"><span class="tick" aria-hidden="true"></span>Skills</a></li>
+          <li><a href="#credentials"><span class="tick" aria-hidden="true"></span>Education and certifications</a></li>
+          <li><a href="#contact"><span class="tick" aria-hidden="true"></span>Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="rail-bottom">
+      <p class="avail"><span class="dot" aria-hidden="true"></span> Open to software engineering roles</p>
+      <ul class="socials">
+        <li><a href="mailto:roanuson.work@gmail.com" aria-label="Email roanuson.work@gmail.com">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 3h13A1.5 1.5 0 0 1 16 4.5v7a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5v-7A1.5 1.5 0 0 1 1.5 3zm.2 1.4 6.3 4.2 6.3-4.2H1.7z"/></svg></a></li>
+        <li><a href="https://github.com/Dreygg526" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile (opens in a new tab)">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a></li>
+        <li><a href="https://www.linkedin.com/in/roan-andrei-uson" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.6 5.3H.8V16h2.8V5.3zM2.2 0C1.2 0 .5.7.5 1.6c0 .9.7 1.6 1.6 1.6h.02c1 0 1.7-.7 1.7-1.6C3.8.7 3.1 0 2.2 0zM16 16h-2.8v-5.7c0-1.4-.5-2.4-1.8-2.4-1 0-1.5.7-1.8 1.3-.1.2-.1.5-.1.9V16H6.7s.04-9.4 0-10.7h2.8v1.5c.37-.6 1-1.4 2.5-1.4 1.9 0 3.3 1.2 3.3 3.8V16z"/></svg></a></li>
+        <li><a href="assets/cv.pdf" download="Roan-Andrei-Uson-CV.pdf" aria-label="Download CV (PDF)">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v9m0 0L4.5 6.5M8 10l3.5-3.5M2 12.5V15h12v-2.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+        <li class="grow"></li>
+        <li><button class="theme" id="themeToggle" type="button" aria-pressed="false" aria-label="Light theme">
+          <svg class="ic-sun" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3.2"/><g stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M8 .8v2M8 13.2v2M.8 8h2M13.2 8h2M2.9 2.9l1.4 1.4M11.7 11.7l1.4 1.4M13.1 2.9l-1.4 1.4M4.3 11.7l-1.4 1.4"/></g></svg>
+          <svg class="ic-moon" viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 10.2A6 6 0 0 1 5.8 2.5a6 6 0 1 0 7.7 7.7z"/></svg>
+        </button></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ============ SCROLLING CONTENT COLUMN ============ -->
+  <main id="main">
+
+    <section id="projects" aria-labelledby="projects-h">
+      <h2 id="projects-h" class="sh">Projects</h2>
+      <ol class="cards">
+        <li class="card">
+          <p class="years">2026</p>
+          <div class="card-body">
+            <figure class="shot" style="--ratio: 2 / 1">
+              <span class="shot-ph" aria-hidden="true">Screenshot: Creative Operations Dashboard (2:1)</span>
+              <img src="assets/project-dashboard.webp" alt="Creative Operations Dashboard: the Ask AI home, with the pipeline, queue, analytics and reports views in the sidebar" loading="lazy" onerror="this.remove()">
+            </figure>
+            <h3><a class="card-t" href="https://revise-creative-dashboard.vercel.app/" target="_blank" rel="noopener noreferrer">Creative Operations Dashboard</a></h3>
+            <p class="p sm">
+              Runs The Standard Lab's ad-production pipeline from concept to performance results.
+              It replaced the spreadsheets and chat threads that 50 team members used to coordinate through.
+            </p>
+            <p class="p sm">
+              The hard part was the routing, not the screens: a stage-gated workflow with role-based
+              access and a submit, approve and revision path, so each task lands with the right person
+              without anyone chasing it. Autosave and real-time data keep everyone on the same version.
+            </p>
+            <p class="metric">AI copywriting on the Claude and Gemini APIs: drafting time from <b>6 hours to 1 minute</b></p>
+            <ul class="tags"><li>Next.js</li><li>TypeScript</li><li>Supabase</li><li>PostgreSQL</li><li>Claude API</li><li>Gemini API</li><li>Vercel</li></ul>
+          </div>
+        </li>
+        <li class="card">
+          <p class="years">2026</p>
+          <div class="card-body">
+            <figure class="shot" style="--ratio: 2 / 1">
+              <span class="shot-ph" aria-hidden="true">Screenshot: Standard Lab Tracking (2:1)</span>
+              <img src="assets/project-tracking.webp" alt="Standard Lab Tracking: the branded order lookup page on standardlabtracking.com" loading="lazy" onerror="this.remove()">
+            </figure>
+            <h3><a class="card-t" href="https://standardlabtracking.com/" target="_blank" rel="noopener noreferrer">Standard Lab Tracking</a></h3>
+            <p class="p sm">
+              A parcel tracking and returns platform for the company's Shopify store. It replaced a paid
+              third-party tracking app with a branded page on the company's own domain.
+            </p>
+            <p class="p sm">
+              The 17TRACK API registers and polls every parcel across multiple carriers, and the raw
+              carrier updates are reduced to one status timeline. Orders and fulfillments arrive on their
+              own through Shopify OAuth and signature-verified webhooks.
+            </p>
+            <p class="metric"><b>10,000+ parcels</b> tracked; 7 Klaviyo flows send <b>150+ updates a day</b> with zero failures</p>
+            <ul class="tags"><li>Supabase</li><li>Shopify OAuth</li><li>Webhooks</li><li>17TRACK API</li><li>Klaviyo</li><li>Vercel</li></ul>
+          </div>
+        </li>
+        <li class="card">
+          <p class="years">Hardware</p>
+          <div class="card-body">
+            <figure class="shot" style="--ratio: 545 / 282">
+              <span class="shot-ph" aria-hidden="true">Photo: BraillTap prototype</span>
+              <img src="assets/project-braille.webp" alt="BraillTap: the six-key Braille keyboard, with Enter, Space, Backspace and the Function, Filipino and English mode keys" loading="lazy" onerror="this.remove()">
+            </figure>
+            <h3><span class="card-t static">BraillTap</span></h3>
+            <p class="p sm">
+              A Raspberry Pi 4 Braille keyboard with text-to-speech, co-developed with a 3D-printed
+              enclosure. The six keys follow the Braille machines SPED teachers already use, so students
+              do not have to learn a new layout.
+            </p>
+            <p class="p sm">
+              Every letter or word is read aloud as it is typed, through a PCM5102 I2S DAC and a PAM8403
+              amplifier, so a student can catch a mistake without a teacher beside them. Grade 2
+              contractions work in English and Filipino.
+            </p>
+            <p class="metric">Five-day study against slate and stylus: contraction accuracy <b>72.5% to 93.3%</b>, typing errors down to zero</p>
+            <ul class="tags"><li>Raspberry Pi 4</li><li>I2S audio</li><li>Text-to-speech</li><li>3D printing</li></ul>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section id="experience" aria-labelledby="exp-h">
+      <h2 id="exp-h" class="sh">Experience</h2>
+      <ol class="cards">
+        <li class="card">
+          <p class="years">Jan – Aug 2026</p>
+          <div class="card-body">
+            <h3 class="role-t">Software Engineer &amp; Shopify Web Developer</h3>
+            <p class="org">The Standard Lab, freelance, remote</p>
+            <ul class="bul">
+              <li>Designed, built and deployed both projects above, end to end, and ran them in production on Vercel: Supabase auth, server-side API routes, environment configuration, and production bugs fixed as they surfaced.</li>
+              <li>Turned the marketing team's copy documents into custom HTML and CSS <a class="ulink" href="landing-pages.html">landing pages</a> on the Shopify store, editing the theme so each page matched the brand and linked straight to products and checkout.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="card">
+          <p class="years">Jul – Oct 2025</p>
+          <div class="card-body">
+            <h3 class="role-t">Field Service Engineer Intern</h3>
+            <p class="org">TOWA Semiconductor Equipment Philippines</p>
+            <p class="p sm">Maintained and troubleshot semiconductor production machines alongside senior engineers, and ran PLC and HMI software backups and version upgrades.</p>
+          </div>
+        </li>
+        <li class="card">
+          <p class="years">May 2024 – Jun 2025</p>
+          <div class="card-body">
+            <h3 class="role-t">Freelance Video Editor (AI) / Social Media VA</h3>
+            <p class="org">Connex Media</p>
+            <p class="p sm">Edited long- and short-form video with AI-generated B-roll and held a 100% on-time delivery rate. <a class="ulink" href="https://dreylancer.my.canva.site/personal-portfolio" target="_blank" rel="noopener noreferrer">Creative portfolio</a></p>
+          </div>
+        </li>
+        <li class="card">
+          <p class="years">Jul 2023 – Apr 2024</p>
+          <div class="card-body">
+            <h3 class="role-t">Member Services Specialist / IT Support</h3>
+            <p class="org">Social Security System (SSS)</p>
+            <p class="p sm">Front-line support and staff training. Implemented a streamlined online system that cut client processing time by 30%. It is hard to ship a confusing interface after months of walking people through one.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="cv-inline"><a class="ulink" href="assets/cv.pdf" download="Roan-Andrei-Uson-CV.pdf">Download the full CV (PDF)</a></p>
+    </section>
+
+    <section id="skills" aria-labelledby="skills-h">
+      <h2 id="skills-h" class="sh">Skills</h2>
+      <dl class="stack">
+        <div><dt>Full-stack</dt><dd>JavaScript, TypeScript, React, Next.js, HTML, CSS</dd></div>
+        <div><dt>Backend and data</dt><dd>SQL, PostgreSQL, Supabase, REST APIs</dd></div>
+        <div><dt>AI integration</dt><dd>Claude and Claude Code, Gemini, N8N, prompt engineering; Higgsfield, Google Veo, Grok and Kling for video</dd></div>
+        <div><dt>Deployment</dt><dd>Vercel, Git and GitHub, environment configuration</dd></div>
+        <div><dt>Languages</dt><dd>Python, Java, C#</dd></div>
+        <div><dt>Hardware and networks</dt><dd>Arduino microcontrollers, Raspberry Pi, Cisco networking fundamentals</dd></div>
+        <div><dt>Tools</dt><dd>VS Code, Cursor, Google Workspace, Microsoft Office</dd></div>
+      </dl>
+    </section>
+
+    <section id="credentials" aria-labelledby="cred-h">
+      <h2 id="cred-h" class="sh">Education and certifications</h2>
+      <dl class="stack">
+        <div><dt>Sep 2026</dt><dd><b>BS Computer Engineering</b>, Polytechnic University of the Philippines. President's Lister, 1.24 GWA.</dd></div>
+        <div><dt>Jun 2026</dt><dd>TESDA Cyber Threat Monitoring Level I (RADENTA)</dd></div>
+        <div><dt>Jun 2026</dt><dd>Fortinet NSE 1, 2 and 3 Cybersecurity</dd></div>
+        <div><dt>Dec 2022</dt><dd>Toshiba: Infrastructure Server and Network &amp; Software Development</dd></div>
+      </dl>
+      <details class="more">
+        <summary>Seminars and workshops (13)</summary>
+        <ul class="seminars">
+          <li><span>Jul 2025</span> ICpEP: Next-Gen AI in Action, Transforming Academe and Engineering Workflows</li>
+          <li><span>Jun 2025</span> APAC Cybersecurity Fund: Cyber Hygiene for Students Workshop</li>
+          <li><span>Jun 2025</span> ICpEP: Formulating Competitive Marketing Strategies in the Digital Age</li>
+          <li><span>Jun 2025</span> ICpEP: Blockchain Is Not Just Crypto</li>
+          <li><span>Jun 2025</span> DICT: National Cybersecurity Plan</li>
+          <li><span>Jun 2025</span> ICpEP: Future of Development, Will Vibe Coding Replace Traditional Programming?</li>
+          <li><span>May 2025</span> DEVCON Laguna: Python Introduction with Microcontrollers</li>
+          <li><span>May 2025</span> DICT: Cyber Tools for the Institute of Computer Engineers of the Philippines</li>
+          <li><span>Apr 2025</span> Zuitt: Free Coding Bootcamp, Basic Web Development Workshop</li>
+          <li><span>Apr 2025</span> DICT: Cyber Threat Landscape and Cyber Hygiene</li>
+          <li><span>Apr 2025</span> ICpEP: AI and Prompt Engineering in Educational Settings</li>
+          <li><span>May 2024</span> SQL Mastery 101: Navigating Basics and Beyond in Database Proficiency</li>
+          <li><span>Mar 2024</span> Figma Seminar: Elevating Front-End Development with Figma</li>
+        </ul>
+      </details>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-h">
+      <h2 id="contact-h" class="sh">Contact</h2>
+      <p class="p lead">Email is the fastest way to reach me.</p>
+      <p class="mail-line"><a class="mail" href="mailto:roanuson.work@gmail.com">roanuson.work@gmail.com</a></p>
+      <dl class="stack">
+        <div><dt>Phone</dt><dd><a class="ulink" href="tel:+639305161213">+63 930 516 1213</a></dd></div>
+        <div><dt>Based in</dt><dd>San Pedro, Laguna, Philippines</dd></div>
+        <div><dt>GitHub</dt><dd><a class="ulink" href="https://github.com/Dreygg526" target="_blank" rel="noopener noreferrer">github.com/Dreygg526</a></dd></div>
+        <div><dt>LinkedIn</dt><dd><a class="ulink" href="https://www.linkedin.com/in/roan-andrei-uson" target="_blank" rel="noopener noreferrer">linkedin.com/in/roan-andrei-uson</a></dd></div>
+        <div><dt>CV</dt><dd><a class="ulink" href="assets/cv.pdf" download="Roan-Andrei-Uson-CV.pdf">Download (PDF)</a></dd></div>
+      </dl>
+      <p class="colophon">Hand-built in HTML, CSS and vanilla JavaScript. Set in IBM Plex Sans and IBM Plex Sans Condensed.</p>
+    </section>
+
+  </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

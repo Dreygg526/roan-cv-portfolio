@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Landing pages — Roan Andrei Uson</title>
+<meta name="description" content="Shopify landing pages built for The Standard Lab from the marketing team's copy documents, in hand-written HTML and CSS.">
+<script>
+/* Same theme rule as index.html, minus the intro: dark on a first visit, a saved choice wins. */
+(function () {
+  var r = document.documentElement, t = null;
+  try { t = localStorage.getItem('theme'); } catch (e) {}
+  if (t === 'light' || t === 'dark') { r.setAttribute('data-theme', t); r.setAttribute('data-theme-locked', ''); }
+  else r.setAttribute('data-theme', 'dark');
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Sans:wght@200;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- Custom cursor. script.js bails silently if either element is missing. -->
+<div class="cur-ring" id="curRing" aria-hidden="true"></div>
+<div class="cur-dot" id="curDot" aria-hidden="true"></div>
+
+<div class="lp-shell">
+
+  <header class="lp-top">
+    <a class="ulink lp-back" href="index.html#experience">&larr; Roan Andrei Uson</a>
+    <button class="theme" id="themeToggle" type="button" aria-pressed="false" aria-label="Light theme">
+      <svg class="ic-sun" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3.2"/><g stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M8 .8v2M8 13.2v2M.8 8h2M13.2 8h2M2.9 2.9l1.4 1.4M11.7 11.7l1.4 1.4M13.1 2.9l-1.4 1.4M4.3 11.7l-1.4 1.4"/></g></svg>
+      <svg class="ic-moon" viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 10.2A6 6 0 0 1 5.8 2.5a6 6 0 1 0 7.7 7.7z"/></svg>
+    </button>
+  </header>
+
+  <main id="main">
+    <div class="lp-head">
+      <h1>Landing pages</h1>
+      <p class="p">
+        Advertorial and listicle pages for The Standard Lab's Shopify store. Each one started as a
+        copy document from the marketing team and became hand-written HTML and CSS, with the theme
+        edited so the page matched the brand and every button went straight to the product.
+        Shown at phone width, because that is where the ad traffic lands.
+      </p>
+    </div>
+
+    <!-- One <li> per page. Screenshot: assets/lp/<name>.webp, 9:16, taken at 390px wide. -->
+    <ul class="lp-grid">
+      <li>
+        <a class="lp-card" href="https://thestandardlab.com/pages/why-men-45-with-high-alts-are-stopping-taking-milk-thistle" target="_blank" rel="noopener noreferrer">
+          <figure class="shot" style="--ratio: 9 / 16">
+            <span class="shot-ph" aria-hidden="true">Screenshot (9:16)</span>
+            <img src="assets/lp/milk-thistle.webp" alt="Phone view of the page: headline, doctor byline, customer quote and a comparison table" loading="lazy" onerror="this.remove()">
+          </figure>
+          <span class="lp-t">Why Men 45+ With High ALTs Are Stopping Milk Thistle</span>
+          <span class="lp-m">Advertorial · thestandardlab.com</span>
+        </a>
+      </li>
+      <li>
+        <a class="lp-card" href="https://thestandardlab.com/pages/rating-6-man" target="_blank" rel="noopener noreferrer">
+          <figure class="shot" style="--ratio: 9 / 16">
+            <span class="shot-ph" aria-hidden="true">Screenshot (9:16)</span>
+            <img src="assets/lp/top-6-liver.webp" alt="Phone view of the page. Ranked review page: headline, reviewer byline and a row of six supplement bottles" loading="lazy" onerror="this.remove()">
+          </figure>
+          <span class="lp-t">Top 6 Liver Supplements for High ALTs</span>
+          <span class="lp-m">Ranked review · thestandardlab.com</span>
+        </a>
+      </li>
+      <li>
+        <a class="lp-card" href="https://thestandardlab.com/pages/10reason_ozempic" target="_blank" rel="noopener noreferrer">
+          <figure class="shot" style="--ratio: 9 / 16">
+            <span class="shot-ph" aria-hidden="true">Screenshot (9:16)</span>
+            <img src="assets/lp/ozempic-vs-nac.webp" alt="Phone view of the page. Comparison listicle: headline and a table comparing NAC600 with Ozempic and Wegovy" loading="lazy" onerror="this.remove()">
+          </figure>
+          <span class="lp-t">Ozempic vs. NAC: Before You Choose</span>
+          <span class="lp-m">Comparison listicle · thestandardlab.com</span>
+        </a>
+      </li>
+      <li>
+        <a class="lp-card" href="https://thestandardlab.com/pages/10-reasons-men-over-45-are-switching-to-nac600-to-lose-the-beer-belly-without-giving-up-alcohol-in-2026" target="_blank" rel="noopener noreferrer">
+          <figure class="shot" style="--ratio: 9 / 16">
+            <span class="shot-ph" aria-hidden="true">Screenshot (9:16)</span>
+            <img src="assets/lp/beer-belly.webp" alt="Phone view of the page. Listicle: headline, author byline, pull quote and the TLDR opening" loading="lazy" onerror="this.remove()">
+          </figure>
+          <span class="lp-t">10 Reasons Men Over 45 Are Switching to NAC600</span>
+          <span class="lp-m">Listicle · thestandardlab.com</span>
+        </a>
+      </li>
+      <li>
+        <a class="lp-card" href="https://thestandardlab.com/pages/best-nac-supplement-for-liver" target="_blank" rel="noopener noreferrer">
+          <figure class="shot" style="--ratio: 9 / 16">
+            <span class="shot-ph" aria-hidden="true">Screenshot (9:16)</span>
+            <img src="assets/lp/fatty-liver-dad.webp" alt="Phone view of the page. Editorial-style advertorial: headline, byline, share buttons and a highlighted opening paragraph" loading="lazy" onerror="this.remove()">
+          </figure>
+          <span class="lp-t">Fatty Liver Scared This 47-Year-Old Dad</span>
+          <span class="lp-m">Advertorial · thestandardlab.com</span>
+        </a>
+      </li>
+    </ul>
+  </main>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
